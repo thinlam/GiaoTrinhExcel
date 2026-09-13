@@ -1,80 +1,1345 @@
-/* 
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
+/* =========================================================
+   GIAO TRINH EXCEL
+   PROFESSIONAL EXCEL LEARNING CENTER
+========================================================= */
 
- html,
- body {
-     width: 100%;
-     height: 100%;
-     margin: 0;
-     padding: 0;
- }
- 
- ul {
-     margin: 0;
-     padding: 0;
- }
- 
- .ms-welcome__header {
-    padding: 20px;
-    padding-bottom: 30px;
-    padding-top: 100px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    align-items: center;
- }
 
- .ms-welcome__main {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-flex: 1 0 0;
-    flex: 1 0 0;
-    padding: 10px 20px;
- }
- 
- .ms-welcome__main > h2 {
-     width: 100%;
-     text-align: center;
- }
- 
- .ms-welcome__features {
-     list-style-type: none;
-     margin-top: 20px;
- }
- 
- .ms-welcome__features.ms-List .ms-ListItem {
-     padding-bottom: 20px;
-     display: -webkit-flex;
-     display: flex;
- }
- 
- .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
-     margin-right: 10px;
- }
- 
- .ms-welcome__action.ms-Button--hero {
-     margin-top: 30px;
- }
- 
-.ms-Button.ms-Button--hero .ms-Button-label {
-  color: #0078d7;
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --excel: #217346;
+  --excel-dark: #185c33;
+  --excel-deep: #124526;
+
+  --excel-50: #f2faf5;
+  --excel-100: #e3f5ea;
+  --excel-200: #c7ecd6;
+
+  --page: #f4f6f9;
+  --surface: #ffffff;
+
+  --text: #192231;
+  --text-secondary: #536174;
+  --text-muted: #8490a2;
+
+  --border: #dfe5ed;
+  --border-light: #edf0f4;
+
+  --green: #258657;
+  --orange: #bc671c;
+  --red: #bd3d38;
+  --purple: #7055a8;
+  --blue: #216cc7;
+
+  --radius-xs: 7px;
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-xs:
+    0 1px 3px rgba(25, 34, 49, 0.05);
+
+  --shadow-sm:
+    0 3px 10px rgba(25, 34, 49, 0.065);
+
+  --shadow-md:
+    0 8px 24px rgba(25, 34, 49, 0.10);
 }
 
-.ms-Button.ms-Button--hero:hover .ms-Button-label,
-.ms-Button.ms-Button--hero:focus .ms-Button-label{
-  color: #005a9e;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+}
+
+
+body {
+  width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  background: var(--page);
+
+  color: var(--text);
+
+  font-family:
+    "Segoe UI",
+    "Segoe UI Variable Text",
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button {
+  border: 0;
+  background: none;
   cursor: pointer;
 }
 
-b {
-    font-weight: bold;
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+code {
+  background: var(--excel-50);
+  color: var(--excel-deep);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 0.92em;
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--page);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-screen {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(160deg, var(--excel-50), var(--page));
+}
+
+
+.loading-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px 26px;
+
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+
+.loading-logo {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--excel);
+  color: #fff;
+
+  font-weight: 700;
+  font-size: 20px;
+
+  border-radius: var(--radius-md);
+}
+
+
+.loading-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.loading-info strong {
+  font-size: 14px;
+  color: var(--text);
+}
+
+
+.loading-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+
+.loading-spinner {
+  width: 18px;
+  height: 18px;
+
+  border: 2.5px solid var(--excel-200);
+  border-top-color: var(--excel);
+  border-radius: 50%;
+
+  animation: gt-spin 0.8s linear infinite;
+}
+
+
+@keyframes gt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.app-header {
+  position: relative;
+  overflow: hidden;
+
+  padding: 22px 20px 30px;
+
+  background: linear-gradient(135deg, var(--excel) 0%, var(--excel-dark) 100%);
+
+  color: #fff;
+}
+
+
+.header-decoration {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+
+.header-decoration-one {
+  width: 160px;
+  height: 160px;
+  top: -70px;
+  right: -50px;
+}
+
+
+.header-decoration-two {
+  width: 90px;
+  height: 90px;
+  bottom: -40px;
+  left: -20px;
+}
+
+
+.header-brand {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.header-logo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.header-title {
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+
+.header-subtitle {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   LEARNING AREA
+========================================================= */
+
+#learning-area {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   INTRO / HERO
+========================================================= */
+
+.intro-section {
+  padding: 20px 20px 4px;
+}
+
+
+.intro-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  color: var(--excel-deep);
+
+  margin-bottom: 6px;
+}
+
+
+.intro-description {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-section {
+  padding: 12px 20px 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 12px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-xs);
+
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+
+.search-box:focus-within {
+  border-color: var(--excel);
+  box-shadow: 0 0 0 3px var(--excel-100);
+}
+
+
+.search-icon {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+
+  border: 0;
+  outline: none;
+  background: transparent;
+
+  font-size: 13px;
+  color: var(--text);
+}
+
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+
+.search-clear-button {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--text-muted);
+  font-size: 12px;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+
+.search-clear-button:hover {
+  background: var(--excel-50);
+  color: var(--excel-deep);
+}
+
+
+.search-result-message {
+  padding: 4px 20px 0;
+
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   HOME VIEW
+========================================================= */
+
+.home-view {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 24px;
+}
+
+
+.lesson-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  padding: 14px 20px 0;
+}
+
+
+/* =========================================================
+   LEVEL GROUP
+========================================================= */
+
+.level-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+}
+
+
+.level-badge {
+  padding: 3px 10px;
+
+  border-radius: 999px;
+
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  color: #fff;
+
+  background: var(--text-muted);
+}
+
+
+.level-basic .level-badge {
+  background: var(--excel);
+}
+
+
+.level-intermediate .level-badge {
+  background: var(--blue);
+}
+
+
+.level-advanced .level-badge {
+  background: var(--purple);
+}
+
+
+.level-reference .level-badge {
+  background: var(--orange);
+}
+
+
+.level-practice .level-badge {
+  background: var(--green);
+}
+
+
+.level-description {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+
+.lesson-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+/* =========================================================
+   LESSON CARD
+========================================================= */
+
+.lesson-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-xs);
+
+  text-align: left;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+
+.lesson-card:hover {
+  border-color: var(--excel-200);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+
+.lesson-card:active {
+  transform: translateY(0);
+}
+
+
+.lesson-card-index {
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--excel-50);
+  color: var(--excel-deep);
+
+  font-weight: 700;
+  font-size: 13px;
+
+  border-radius: var(--radius-sm);
+}
+
+
+.lesson-card-body {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.lesson-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+.lesson-card-description {
+  font-size: 11.5px;
+  color: var(--text-muted);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.lesson-card-arrow {
+  flex-shrink: 0;
+
+  color: var(--excel);
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+
+.empty-state-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+
+.empty-state-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+.empty-state-description {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 4px 0 14px;
+}
+
+
+.empty-state-button {
+  padding: 8px 16px;
+
+  background: var(--excel);
+  color: #fff;
+
+  font-size: 12.5px;
+  font-weight: 600;
+
+  border-radius: var(--radius-sm);
+}
+
+
+.empty-state-button:hover {
+  background: var(--excel-dark);
+}
+
+
+/* =========================================================
+   LESSON VIEW / DETAIL
+========================================================= */
+
+.lesson-view {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 16px 20px 28px;
+
+  overflow-y: auto;
+}
+
+
+.back-button {
+  align-self: flex-start;
+
+  padding: 7px 12px;
+
+  background: var(--excel-50);
+  color: var(--excel-deep);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border-radius: var(--radius-sm);
+}
+
+
+.back-button:hover {
+  background: var(--excel-100);
+}
+
+
+.back-button-bottom {
+  margin-top: 4px;
+}
+
+
+.lesson-header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+
+.lesson-header-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+}
+
+
+.lesson-part-badge {
+  padding: 3px 10px;
+
+  background: var(--excel);
+  color: #fff;
+
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  border-radius: 999px;
+}
+
+
+.lesson-level-badge {
+  padding: 3px 10px;
+
+  border-radius: 999px;
+
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  color: #fff;
+
+  background: var(--text-muted);
+}
+
+
+.lesson-level-badge.level-basic {
+  background: var(--excel);
+}
+
+
+.lesson-level-badge.level-intermediate {
+  background: var(--blue);
+}
+
+
+.lesson-level-badge.level-advanced {
+  background: var(--purple);
+}
+
+
+.lesson-level-badge.level-reference {
+  background: var(--orange);
+}
+
+
+.lesson-level-badge.level-practice {
+  background: var(--green);
+}
+
+
+.lesson-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+
+  margin-bottom: 4px;
+}
+
+
+.lesson-description {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+.lesson-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.lesson-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--excel-deep);
+
+  margin-bottom: 8px;
+}
+
+
+.lesson-section-content {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+
+.lesson-section-content p {
+  margin-bottom: 8px;
+}
+
+
+.lesson-section-content ul,
+.lesson-section-content ol {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+
+.lesson-section-content li {
+  margin-bottom: 4px;
+}
+
+
+.lesson-block-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+
+  margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   CONTENT BLOCKS: PURPOSE / STEPS / RESULT / EXAMPLE
+========================================================= */
+
+.lesson-purpose,
+.lesson-steps,
+.lesson-result,
+.lesson-example {
+  padding: 12px 14px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  margin-bottom: 10px;
+}
+
+
+.lesson-steps ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+
+.lesson-steps li {
+  margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   NOTE / WARNING
+========================================================= */
+
+.note,
+.warning {
+  padding: 10px 12px;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 12.5px;
+  line-height: 1.55;
+
+  margin-bottom: 10px;
+}
+
+
+.note {
+  background: var(--excel-50);
+  border: 1px solid var(--excel-200);
+  color: var(--excel-deep);
+}
+
+
+.warning {
+  background: #fdf3ec;
+  border: 1px solid #f3d9be;
+  color: var(--orange);
+}
+
+
+/* =========================================================
+   FORMULA BOX
+========================================================= */
+
+.formula-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  padding: 10px 12px;
+
+  background: #0f2d1c;
+  border-radius: var(--radius-sm);
+
+  margin-bottom: 10px;
+}
+
+
+.formula-box code {
+  background: transparent;
+  color: #b8f5cf;
+  padding: 0;
+  font-size: 13px;
+}
+
+
+.formula-result {
+  font-size: 12px;
+  color: #8fe0b0;
+}
+
+
+/* =========================================================
+   TREE BLOCK (Workbook/Worksheet tree ví dụ)
+========================================================= */
+
+.tree-block {
+  padding: 10px 12px;
+
+  background: var(--page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+  color: var(--text-secondary);
+
+  white-space: pre;
+  overflow-x: auto;
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-scroll {
+  overflow-x: auto;
+
+  margin-bottom: 10px;
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  font-size: 12.5px;
+}
+
+
+thead th {
+  background: var(--excel-50);
+  color: var(--excel-deep);
+
+  text-align: left;
+
+  padding: 8px 10px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+tbody td {
+  padding: 7px 10px;
+
+  border-top: 1px solid var(--border-light);
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   EXCEL COMMAND / PATH (click-path breadcrumb)
+========================================================= */
+
+.excel-command {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+
+.excel-command strong {
+  color: var(--excel-deep);
+}
+
+
+.excel-command-vi {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+
+.excel-path {
+  padding: 12px 14px;
+
+  background: var(--excel-50);
+  border: 1px solid var(--excel-200);
+  border-radius: var(--radius-md);
+
+  margin-bottom: 10px;
+}
+
+
+.excel-path .lesson-block-title {
+  color: var(--excel-deep);
+  opacity: 0.75;
+}
+
+
+.excel-path-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  font-size: 13px;
+}
+
+
+.excel-path-arrow {
+  color: var(--text-muted);
+  margin: 0 2px;
+}
+
+
+/* =========================================================
+   SHORTCUT UI (gt-*)
+========================================================= */
+
+.gt-shortcut-group {
+  margin-bottom: 10px;
+}
+
+
+.gt-shortcut-group-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+
+  margin-bottom: 8px;
+}
+
+
+.gt-shortcut-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.gt-shortcut-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  overflow: hidden;
+}
+
+
+.gt-shortcut-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+
+.gt-shortcut-summary::-webkit-details-marker {
+  display: none;
+}
+
+
+.gt-shortcut-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+}
+
+
+.gt-key-combination {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  flex-shrink: 0;
+}
+
+
+.gt-key {
+  padding: 3px 7px;
+
+  background: var(--excel-50);
+  border: 1px solid var(--excel-200);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+
+  font-family: "Cascadia Code", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+
+  color: var(--excel-deep);
+}
+
+
+.gt-key-plus {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+
+.gt-shortcut-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+
+  min-width: 0;
+}
+
+
+.gt-shortcut-name {
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+
+.gt-shortcut-description {
+  font-size: 11px;
+  color: var(--text-muted);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.gt-shortcut-chevron {
+  flex-shrink: 0;
+
+  color: var(--text-muted);
+  font-size: 15px;
+
+  transition: transform 0.15s ease;
+}
+
+
+.gt-shortcut-card[open] .gt-shortcut-chevron {
+  transform: rotate(90deg);
+}
+
+
+.gt-shortcut-body {
+  padding: 0 12px 12px;
+}
+
+
+.gt-shortcut-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  color: var(--text-muted);
+
+  margin-bottom: 6px;
+}
+
+
+.gt-shortcut-steps {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+.gt-shortcut-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  font-size: 12px;
+  color: var(--text);
+}
+
+
+.gt-step-number {
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--excel-50);
+  color: var(--excel-deep);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  border-radius: 50%;
+}
+
+
+.gt-shortcut-result,
+.gt-shortcut-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  padding: 8px 10px;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 12px;
+
+  margin-top: 8px;
+}
+
+
+.gt-shortcut-result {
+  background: var(--excel-50);
+  color: var(--excel-deep);
+}
+
+
+.gt-shortcut-tip {
+  background: #fff8e8;
+  color: #8a6a12;
+}
+
+
+.gt-shortcut-result p,
+.gt-shortcut-tip p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.app-footer {
+  padding: 12px 20px;
+
+  text-align: center;
+
+  font-size: 11px;
+  color: var(--text-muted);
+
+  border-top: 1px solid var(--border-light);
+}
+
+
+/* =========================================================
+   RESPONSIVE — Task Pane hẹp
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .header-brand {
+    gap: 8px;
+  }
+
+  .lesson-card {
+    padding: 10px 12px;
+  }
+
+  .lesson-title {
+    font-size: 15.5px;
+  }
+
 }

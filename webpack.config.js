@@ -42,6 +42,10 @@ module.exports = async (env, options) => {
           use: "html-loader",
         },
         {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+        {
           test: /\.(png|jpg|jpeg|gif|ico)$/,
           type: "asset/resource",
           generator: {
@@ -90,6 +94,9 @@ module.exports = async (env, options) => {
         options: env.WEBPACK_BUILD || options.https !== undefined ? options.https : await getHttpsOptions(),
       },
       port: process.env.npm_package_config_dev_server_port || 3000,
+      client: {
+        overlay: false,
+      },
     },
   };
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>70455e57-94c1-4cfd-a5e9-bbcf70e9eb3c</Id>
+  <Id>b1f2e3d4-5a6b-4c7d-8e9f-0123456789ab</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
-  <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="GiaoTrinhExcel"/>
-  <Description DefaultValue="A template to get started."/>
+  <ProviderName>Lam Nguyen Thin</ProviderName>
+  <DefaultLocale>vi-VN</DefaultLocale>
+  <DisplayName DefaultValue="GIAO TRINH EXCEL"/>
+  <Description DefaultValue="Giao trinh Microsoft Excel tu co ban den nang cao."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <SupportUrl DefaultValue="https://localhost:3000/taskpane.html"/>
   <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
+    <AppDomain>https://localhost:3000</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
@@ -31,18 +31,18 @@
           <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
-              <Group id="CommandsGroup">
-                <Label resid="CommandsGroup.Label"/>
+              <Group id="GiaoTrinhExcel.Group">
+                <Label resid="GroupLabel"/>
                 <Icon>
                   <bt:Image size="16" resid="Icon.16x16"/>
                   <bt:Image size="32" resid="Icon.32x32"/>
                   <bt:Image size="80" resid="Icon.80x80"/>
                 </Icon>
-                <Control xsi:type="Button" id="TaskpaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
+                <Control xsi:type="Button" id="GiaoTrinhExcel.Open">
+                  <Label resid="OpenLabel"/>
                   <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
+                    <Title resid="OpenLabel"/>
+                    <Description resid="OpenTip"/>
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="Icon.16x16"/>
@@ -50,7 +50,7 @@
                     <bt:Image size="80" resid="Icon.80x80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <TaskpaneId>GiaoTrinhExcelTaskpane</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url"/>
                   </Action>
                 </Control>
@@ -72,13 +72,13 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Task Pane"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Chào mừng đến với Giáo Trình Excel!"/>
+        <bt:String id="GroupLabel" DefaultValue="GIÁO TRÌNH EXCEL"/>
+        <bt:String id="OpenLabel" DefaultValue="Mở Giáo Trình"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded successfully. Go to the HOME tab and click the 'Show Task Pane' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Giao trinh Microsoft Excel da san sang. Vao tab HOME va bam nut 'Mo Giao Trinh' de bat dau."/>
+        <bt:String id="OpenTip" DefaultValue="Mở giáo trình Microsoft Excel ngay bên cạnh Workbook đang làm."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
